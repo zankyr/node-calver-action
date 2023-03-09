@@ -1,0 +1,5 @@
+name: "Node calendar versioning update"
+description: "Update a Node project version using calver"
+runs:
+  using: "node16"
+  main: "dist/index.js"

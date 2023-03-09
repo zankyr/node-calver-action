@@ -1,0 +1,14 @@
+on: [push]
+
+jobs:
+  node_calver_update_job:
+    runs-on: ubuntu-latest
+    name: A job to update a Node project version
+    steps:
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Calver action step
+        id: update
+        uses: ./
