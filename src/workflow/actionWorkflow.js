@@ -1,5 +1,6 @@
 const core = require("@actions/core");
 const github = require("@actions/github");
+const exec = require("@actions/exec");
 const calver = require("calver");
 const packageJson = require("../../package.json");
 const fs = require("fs");
@@ -19,12 +20,21 @@ const actionWorkflow = () => {
       );
     }
 
+    core.info("Updating package.json");
     packageJson.version = updatedVersion;
 
     fs.writeFileSync(
       "./package.json",
-      JSON.stringify(packageJson, undefined, 4)
+      JSON.stringify(packageJson, undefined, 2)
     );
+
+    core.info("Pushing changes to the repo");
+    exec.exec("git add", ["./package.json"]);
+    exec.exec("git commit", [
+      "-m",
+      `Update project version to ${updatedVersion}`,
+    ]);
+    exec.exec("git push");
 
     core.setOutput("version", updatedVersion);
   } catch (error) {
