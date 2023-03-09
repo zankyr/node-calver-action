@@ -1,10 +1,10 @@
 {
   "name": "node-calver-action",
-  "version": "23.3.9",
+  "version": "23.3.9-dev",
   "description": "Update a Node project version using calendar versioning",
   "main": "src/index.js",
-  "repository": "",
-  "author": "",
+  "repository": "https://github.com/zankyr/node-calver-action.git",
+  "author": "zankyr <p3mal88@gmail.com>",
   "license": "MIT",
   "scripts": {
     "test": "node src/index.js"
