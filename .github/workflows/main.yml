@@ -10,10 +10,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Calver action step
+        id: update
         uses: ./ # Uses an action in the root directory
-        id: hello
-        with:
-          who-to-greet: "Rik the Bull"
       # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+      - name: Get the new version
+        run: echo "Updated version id ${{ steps.update.outputs.version }}"

@@ -1,13 +1,8 @@
 name: "Node Calver update"
 description: "Update a Node project version using Calver"
-inputs:
-  who-to-greet: # id of input
-    description: "Who to greet"
-    required: true
-    default: "World"
 outputs:
-  time: # id of output
-    description: "The time we greeted you"
+  version: # id of output
+    description: "The updated version"
 runs:
   using: "node16"
   main: "index.js"
