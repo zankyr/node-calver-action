@@ -1,17 +1,1 @@
-{
-  "name": "calver-action",
-  "version": "1.0.0",
-  "description": "Update a Node project version using Calver",
-  "main": "index.js",
-  "scripts": {
-    "test": "node index.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@actions/core": "^1.10.0",
-    "@actions/github": "^5.1.1",
-    "calver": "^22.8.4"
-  }
-}
+{"name":"node-calver-action","version":"23.3.9","description":"Update a Node project version using calendar versioning","main":"src/index.js","repository":"","author":"","license":"MIT","scripts":{"test":"node src/index.js"},"dependencies":{"@actions/core":"^1.10.0","@actions/github":"^5.1.1","calver":"^22.8.4","json":"^11.0.0"}}
