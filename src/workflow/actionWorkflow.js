@@ -10,8 +10,8 @@ const actionWorkflow = () => {
     const currentVersion = packageJson.version;
     const updatedVersion = calver.inc(format, "", "calendar");
 
-    console.log(`Current version: ${currentVersion}`);
-    console.log(`Updated version: ${updatedVersion}`);
+    core.info(`Current version: ${currentVersion}`);
+    core.info(`Updated version: ${updatedVersion}`);
 
     if (currentVersion === updatedVersion) {
       return core.info(
