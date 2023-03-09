@@ -31,12 +31,12 @@ const actionWorkflow = async () => {
     core.info("Pushing changes to the repo");
     const userEmail = core.getInput("commit-user-email");
     const userName = core.getInput("commit-user");
-    await exec("git config", [
+    await exec.exec("git config", [
       "--global",
       "user.name",
       userName.length === 0 ? github.context.actor : userName,
     ]);
-    await exec("git config", [
+    await exec.exec("git config", [
       "--global",
       "user.email",
       userEmail.length === 0
