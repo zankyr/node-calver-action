@@ -1,19 +1,19 @@
 on: [push]
 
 jobs:
-  hello_world_job:
+  node_calver_update_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: A job to update a Node project version
     steps:
       # To use this repository's private action,
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Hello world action step
+      - name: Calver action step
         uses: ./ # Uses an action in the root directory
         id: hello
         with:
-          who-to-greet: "Mona the Octocat"
+          who-to-greet: "Rik the Bull"
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
