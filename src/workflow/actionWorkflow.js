@@ -29,6 +29,21 @@ const actionWorkflow = async () => {
     );
 
     core.info("Pushing changes to the repo");
+    const userEmail = core.getInput("commit-user-email");
+    const userName = core.getInput("commit-user");
+    await exec("git config", [
+      "--global",
+      "user.name",
+      userName.length === 0 ? githhub.context.actor : userName,
+    ]);
+    await exec("git config", [
+      "--global",
+      "user.email",
+      userEmail.length === 0
+        ? `${githhub.context.actor}@users.noreply.github.com`
+        : userEmail,
+    ]);
+
     await exec.exec("git add", ["./package.json"]);
     await exec.exec("git commit", [
       "-m",
