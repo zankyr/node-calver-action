@@ -1,6 +1,6 @@
 {
   "name": "node-calver-action",
-  "version": "1.0.0",
+  "version": "23.3.9",
   "description": "Update a Node project version using calendar versioning",
   "main": "src/index.js",
   "repository": "",
