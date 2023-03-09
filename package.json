@@ -1,0 +1,12 @@
+{
+  "name": "calver-action",
+  "version": "23.03.09-alpha",
+  "description": "Update a Node project version using Calver",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
