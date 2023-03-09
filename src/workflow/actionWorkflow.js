@@ -5,7 +5,7 @@ const calver = require("calver");
 const packageJson = require("../../package.json");
 const fs = require("fs");
 
-const actionWorkflow = () => {
+const actionWorkflow = async () => {
   try {
     const format = "yy.mm.dd";
     const currentVersion = packageJson.version;
@@ -29,12 +29,12 @@ const actionWorkflow = () => {
     );
 
     core.info("Pushing changes to the repo");
-    exec.exec("git add", ["./package.json"]);
-    exec.exec("git commit", [
+    await exec.exec("git add", ["./package.json"]);
+    await exec.exec("git commit", [
       "-m",
       `Update project version to ${updatedVersion}`,
     ]);
-    exec.exec("git push");
+    await exec.exec("git push");
 
     core.setOutput("version", updatedVersion);
   } catch (error) {
