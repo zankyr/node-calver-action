@@ -34,13 +34,13 @@ const actionWorkflow = async () => {
     await exec("git config", [
       "--global",
       "user.name",
-      userName.length === 0 ? githhub.context.actor : userName,
+      userName.length === 0 ? github.context.actor : userName,
     ]);
     await exec("git config", [
       "--global",
       "user.email",
       userEmail.length === 0
-        ? `${githhub.context.actor}@users.noreply.github.com`
+        ? `${github.context.actor}@users.noreply.github.com`
         : userEmail,
     ]);
 
