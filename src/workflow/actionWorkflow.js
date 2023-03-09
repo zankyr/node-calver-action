@@ -7,12 +7,19 @@ const fs = require("fs");
 const actionWorkflow = () => {
   try {
     const format = "yy.mm.dd";
+    const currentVersion = packageJson.version;
     const updatedVersion = calver.inc(format, "", "calendar");
 
-    console.log(`Current version: ${packageJson.version}`);
+    console.log(`Current version: ${currentVersion}`);
+    console.log(`Updated version: ${updatedVersion}`);
+
+    if (currentVersion === updatedVersion) {
+      return core.info(
+        "Current version is already the latest, no action required"
+      );
+    }
 
     packageJson.version = updatedVersion;
-    console.log(`Updated version: ${packageJson.version}`);
 
     fs.writeFileSync(
       "./package.json",
@@ -21,7 +28,7 @@ const actionWorkflow = () => {
 
     core.setOutput("version", updatedVersion);
   } catch (error) {
-    core.setFailed(error.message);
+    return core.setFailed(error.message);
   }
 };
 
